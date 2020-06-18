@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { replaceText } from '../utils'
 
 export default function Country({ country }) {
   const {
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
   const res = await fetch('https://restcountries.eu/rest/v2/all')
   const countries = await res.json()
   const paths = countries.map((country) => ({
-    params: { country: country.name.toLowerCase().replace('å', 'a') },
+    params: { country: replaceText(country.name) },
   }))
 
   return { paths, fallback: false }

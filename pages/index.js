@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { replaceText } from '../utils'
 
 export default function Home({ countries }) {
   return (
@@ -33,11 +34,11 @@ export default function Home({ countries }) {
 function Card(country) {
   return (
       <div className="card" key={country.name + country.population}>
-        <Link href={`/${country.name.toLowerCase().replace('å', 'a')}`}>
+        <Link href={`/${replaceText(country.name)}`}>
           <div className="flag" />
         </Link>
         <div className="data">
-          <Link href={`/${country.name.toLowerCase().replace('å', 'a')}`}>
+          <Link href={`/${replaceText(country.name)}`}>
             <p>{country.name}</p>
           </Link>
           <ul>
