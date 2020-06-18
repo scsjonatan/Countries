@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Header from '../components/Header'
 import { replaceText } from '../utils'
 
 export default function Home({ countries }) {
@@ -10,6 +11,7 @@ export default function Home({ countries }) {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet"></link>
       </Head>
+      <Header />
       <main>
         {
           countries.map(country => (
